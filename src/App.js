@@ -12,6 +12,7 @@ import AllBlog from './componant/AllBlog/AllBlog';
 import AddBlog from './componant/AddBlog/AddBlog';
 import Login from './componant/Login/Login';
 import PrivateRoute from './componant/PrivateRoute/PrivateRoute';
+import Masssage from './componant/Massage/Massage';
 
 export const UserContext = createContext();
 
@@ -27,6 +28,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/addblog">
             <AddBlog />
+          </PrivateRoute>
+          <PrivateRoute path="/massage">
+            <Masssage />
           </PrivateRoute>
           <Route path="/">
             <Login />

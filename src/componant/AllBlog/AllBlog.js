@@ -1,8 +1,26 @@
-import React from 'react'
+import axios from 'axios';
+import dateFormat from 'dateformat';
+import React, { useEffect, useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar';
 import './AllBlog.css';
 
 function AllBlog() {
+
+    const [Blogs, setBlogs] = useState([]);
+    const [DeletedBlog, setDeletedBlog] = useState(null)
+
+    useEffect(async () => {
+        const { data } = await axios.get("https://salty-shore-60213.herokuapp.com/blog/");
+
+        setBlogs(data);
+    }, [DeletedBlog]);
+
+    const handleDelete = async (id) => {
+        const { data } = await axios.delete(`https://salty-shore-60213.herokuapp.com/blog/${ id }`)
+
+        setDeletedBlog(data);
+    }
+
     return (
         <div class="container-fluid">
             <div class="row">
@@ -22,61 +40,19 @@ function AllBlog() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Lorem, ipsum. </td>
-                                    <td>4-12-2021</td>
-                                    <td>Lorem, ipsum.</td>
-                                    <td><img src="./img/upload-image-3276776-2743110.png" class="img-fluid" alt="" /></td>
-                                    <td>
-                                        <button class="btn btn-success"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Lorem, ipsum. </td>
-                                    <td>4-12-2021</td>
-                                    <td>Lorem, ipsum.</td>
-                                    <td><img src="./img/upload-image-3276776-2743110.png" class="img-fluid" alt="" /></td>
-                                    <td>
-                                        <button class="btn btn-success"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Lorem, ipsum. </td>
-                                    <td>4-12-2021</td>
-                                    <td>Lorem, ipsum.</td>
-                                    <td><img src="./img/upload-image-3276776-2743110.png" class="img-fluid" alt="" /></td>
-                                    <td>
-                                        <button class="btn btn-success"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Lorem, ipsum. </td>
-                                    <td>4-12-2021</td>
-                                    <td>Lorem, ipsum.</td>
-                                    <td><img src="./img/upload-image-3276776-2743110.png" class="img-fluid" alt="" /></td>
-                                    <td>
-                                        <button class="btn btn-success"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Lorem, ipsum. </td>
-                                    <td>4-12-2021</td>
-                                    <td>Lorem, ipsum.</td>
-                                    <td><img src="./img/upload-image-3276776-2743110.png" class="img-fluid" alt="" /></td>
-                                    <td>
-                                        <button class="btn btn-success"><i class="far fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </td>
-                                </tr>
+                                {Blogs.map((blog, index) => (
+                                    <tr>
+                                        <th scope="row">{index}</th>
+                                        <td>{blog.title}</td>
+                                        <td>{dateFormat(blog.createAt, "mmmm dS, yyyy")}</td>
+                                        <td>{blog.author}</td>
+                                        <td><img src={blog.imgURL} width="100px" height="100px" class="img-fluid" alt="" /></td>
+                                        <td>
+                                            <button class="btn btn-success"><i class="far fa-edit"></i></button>
+                                            <button onClick={() => handleDelete(blog._id)} class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                ))}
                                 {/* <!-- Last tr use as table footer as like design --> */}
                                 <tr>
                                     <td colspan="5">
@@ -84,7 +60,7 @@ function AllBlog() {
                                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                                 Raw per page 10
-                                        </button>
+                                            </button>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                 <li><a class="dropdown-item" href="#">Raw per page 10</a></li>
                                                 <li><a class="dropdown-item" href="#">Raw per page 20</a></li>

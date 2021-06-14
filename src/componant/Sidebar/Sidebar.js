@@ -14,6 +14,9 @@ function Sidebar({ menu }) {
                 <li class={menu === "allblog" && 'active'}>
                     <div class="icon"><i class="fas fa-newspaper"></i></div><Link to="/allblog">All blog</Link>
                 </li>
+                <li class={menu === "massage" && 'active'}>
+                    <div class="icon"><i class="fas fa-comment-alt"></i></div><Link to="/massage">Massage</Link>
+                </li>
             </ul>
         </div>
     )
