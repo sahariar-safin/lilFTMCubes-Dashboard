@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import Sidebar from '../Sidebar/Sidebar';
 import './AddBlog.css';
@@ -7,15 +7,27 @@ import './AddBlog.css';
 function AddBlog() {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [img, setImg] = useState('');
     const onSubmit = async blogData => {
-        const imgData = new FormData();
-        imgData.set("key", "5cc92beddf63f7dc55cb81cb7d04e498")
-        imgData.append('image', blogData.imgURL[0]);
-        const { data } = await axios.post("https://api.imgbb.com/1/upload", imgData);
-        blogData.imgURL = data.data.display_url;
+        blogData.imgURL = img;
+        console.log(img, blogData)
         const blog = await axios.post("https://salty-shore-60213.herokuapp.com/blog/", blogData);
         document.getElementById("blogForm").reset();
     };
+
+    const handleImgUplodad = async (e) => {
+        document.getElementById("submitBtn").setAttribute("disabled", "disabled")
+        document.getElementById("submitBtn").value = "Uploading Image!"
+        const imgData = new FormData();
+        imgData.set("key", "5cc92beddf63f7dc55cb81cb7d04e498")
+        imgData.append('image', e.target.files[0]);
+        const { data } = await axios.post("https://api.imgbb.com/1/upload", imgData);
+        setImg(data.data.display_url);
+        document.getElementById("submitBtn").removeAttribute("disabled");
+        document.getElementById("submitBtn").value = "Create Blog";
+    }
+
+
 
     return (
         <div class="container-fluid">
@@ -35,7 +47,7 @@ function AddBlog() {
                                 <input {...register("author", { required: true })} type="text" class="form-control" id="author" placeholder="Author" />
                             </div>
 
-                            <input {...register("imgURL", { required: true })} type="file" class="form-control" id="upload" aria-describedby="upload"
+                            <input {...register("imgURL", { required: true })} onChange={(e) => handleImgUplodad(e)} type="file" class="form-control" id="upload" aria-describedby="upload"
                                 aria-label="Upload" />
                             <label for="upload">
                                 <div class="upload">
@@ -45,7 +57,7 @@ function AddBlog() {
                             </label>
 
                             <div class='text-center'>
-                                <input type="submit" value="Create Blog" class="submit-btn" />
+                                <input type="submit" id="submitBtn" value="Create Blog" class="submit-btn" />
                             </div>
                         </form>
                     </div>
