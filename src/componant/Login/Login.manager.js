@@ -6,8 +6,9 @@ firebase.initializeApp(firebaseConfig);
 
 export const signInWithPassword = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
             // Signed in
+            await setToken();
             var user = userCredential.user;
             return user;
             // ...
@@ -16,5 +17,14 @@ export const signInWithPassword = (email, password) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             return errorMessage;
+        });
+}
+
+const setToken = () => {
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function (idToken) {
+            sessionStorage.setItem('token', idToken);
+        }).catch(function (error) {
+            // Handle error
         });
 }
