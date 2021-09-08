@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../../style/Home.css';
 import logo from '../../assets/logo.svg';
+import { UserContext } from '../../App';
 
 function Navbar() {
+    const [user, setUser] = useContext(UserContext);
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark navbar-bg ">
@@ -20,11 +22,12 @@ function Navbar() {
                                     Home
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    User Info
-                                </a>
-                            </li>
+                            {user.email &&
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">
+                                        Log Out
+                                    </a>
+                                </li>}
                         </ul>
                         <div class="d-flex">
 

@@ -49,6 +49,14 @@ function ButtonMains() {
                                 <label htmlFor=""></label>
                                 <input onChange={(e) => setbuttonText({ ...buttonText, button2: e.target.value })} defaultValue={button.button2} className="form-control" id="exampleFormControlTextarea1" rows="3"></input>
                             </div>
+                            <div className="form-group">
+                                <label htmlFor=""></label>
+                                <input onChange={(e) => setbuttonText({ ...buttonText, button3: e.target.value })} defaultValue={button.button3} className="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="">Button 3 url</label>
+                                <input onChange={(e) => setbuttonText({ ...buttonText, btn3Url: e.target.value })} defaultValue={button.btn3Url} className="form-control" id="exampleFormControlTextarea1" rows="3"></input>
+                            </div>
                             <button onClick={(e) => handleEdit(e)} className="mt-2 btn btn-primary">Save</button>
                         </form>
                     )
@@ -56,6 +64,7 @@ function ButtonMains() {
                         <div className="d-flex">
                             <button className="btn btn-light me-3">{button.button1}</button>
                             <button className="btn btn-light">{button.button2}</button>
+                            <button className="btn btn-light">{button.button3}</button>
                         </div>
                     )}
             </div>
