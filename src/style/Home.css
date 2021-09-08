@@ -1,0 +1,31 @@
+.navbar-bg {
+    background: #0058d0 0% 0% no-repeat padding-box;
+}
+
+.navbar-brand img {
+    width: 50px;
+}
+
+.title-bg {
+    background: #f5f9ff 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.title {
+    text-align: left;
+    font: normal normal bold 22px/27px Helvetica Neue;
+    letter-spacing: 0px;
+    color: #0058d0;
+    padding: 5px 30px;
+}
+
+.gTextColor {
+    color: #0058d0;
+}
+
+.serviceCard {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #cce2ff;
+    border-radius: 4px;
+}

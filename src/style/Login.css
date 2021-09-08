@@ -1,13 +1,20 @@
-.login-form form {
-    width: 100vh;
+.login-form {
+    width: 659px;
+}
+
+.loginCard {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 18px 20px 60px #0860d80d;
+    border: 1px solid #cbe1ff;
+    border-radius: 4px;
+    opacity: 1;
 }
 
 .login-form h1 {
     font-weight: 100;
-    color: white;
+    color: black;
     text-align: center;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgb(79, 98, 148);
 }
 
 .login-form .form {
@@ -42,28 +49,35 @@
     display: block;
     margin-bottom: 13px;
     margin-top: 20px;
-    color: white;
+    color: black;
     font-size: 14px;
     font-weight: 200;
 }
 
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    background: #f5f9ff 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+}
+
 .login-form input[type="submit"] {
-    background: #ec5990;
+    width: 122px;
+    height: 39px;
+    background: #0058d0;
     color: white;
-    text-transform: uppercase;
     border: none;
-    margin-top: 40px;
-    padding: 20px;
+    margin: 0 auto;
     font-size: 16px;
     font-weight: 100;
-    letter-spacing: 10px;
 }
 
 .login-form input[type="submit"]:hover {
-    background: #bf1650;
+    background: #0058d0;
 }
 
-.login-form input[type="button"]:active, input[type="submit"]:active {
+.login-form input[type="button"]:active,
+input[type="submit"]:active {
     transition: 0.3s all;
     transform: translateY(3px);
     border: 1px solid transparent;
@@ -78,6 +92,7 @@
     transition: 0.3s all;
 }
 
-.login-form input[type="button"], input[type="submit"] {
+.login-form input[type="button"],
+input[type="submit"] {
     -webkit-appearance: none;
 }

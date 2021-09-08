@@ -1,10 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyCcD2TBtY0lLVYbtpL5qomxZXux5tJ9Pk0",
-    authDomain: "brain-box-bd.firebaseapp.com",
-    projectId: "brain-box-bd",
-    storageBucket: "brain-box-bd.appspot.com",
-    messagingSenderId: "1006677110644",
-    appId: "1:1006677110644:web:2637df2999c631a7558621"
+    apiKey: "AIzaSyAVGUKIiVDu8LbqEN_So28pq2rdhWoS0gc",
+    authDomain: "lil-cudes.firebaseapp.com",
+    projectId: "lil-cudes",
+    storageBucket: "lil-cudes.appspot.com",
+    messagingSenderId: "1012192386703",
+    appId: "1:1012192386703:web:35dea4f869b03f72e3dafa",
+    measurementId: "G-GGMHBCEZWH"
 };
 
 export default firebaseConfig;

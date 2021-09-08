@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -8,11 +7,9 @@ import {
   useHistory
 } from "react-router-dom";
 import { createContext, useState } from 'react';
-import AllBlog from './componant/AllBlog/AllBlog';
-import AddBlog from './componant/AddBlog/AddBlog';
-import Login from './componant/Login/Login';
+import Login from './pages/Login';
 import PrivateRoute from './componant/PrivateRoute/PrivateRoute';
-import Masssage from './componant/Massage/Massage';
+import Home from './pages/Home';
 
 export const UserContext = createContext();
 
@@ -23,14 +20,8 @@ function App() {
     <UserContext.Provider value={[user, setUser]}>
       <Router>
         <Switch>
-          <PrivateRoute path="/allblog">
-            <AllBlog></AllBlog>
-          </PrivateRoute>
-          <PrivateRoute path="/addblog">
-            <AddBlog />
-          </PrivateRoute>
-          <PrivateRoute path="/massage">
-            <Masssage />
+          <PrivateRoute path="/home">
+            <Home />
           </PrivateRoute>
           <Route path="/">
             <Login />
