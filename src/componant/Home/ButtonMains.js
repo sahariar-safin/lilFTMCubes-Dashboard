@@ -63,7 +63,7 @@ function ButtonMains() {
                     : (
                         <div className="d-flex">
                             <button className="btn btn-light me-3">{button.button1}</button>
-                            <button className="btn btn-light">{button.button2}</button>
+                            <button className="btn btn-light me-3">{button.button2}</button>
                             <button className="btn btn-light">{button.button3}</button>
                         </div>
                     )}
