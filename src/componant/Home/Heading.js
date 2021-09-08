@@ -14,7 +14,7 @@ function Heading() {
 
     const handleEdit = async (e) => {
         e.preventDefault();
-        const { data } = await axios.patch('http://localhost:5000/documents/update/heading', headingText, {
+        const { data } = await axios.patch('https://salty-inlet-72802.herokuapp.com/documents/update/heading', headingText, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${ sessionStorage.getItem('token') }`

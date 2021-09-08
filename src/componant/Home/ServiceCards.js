@@ -14,7 +14,7 @@ function ServiceCards() {
 
     const handleEdit = async (e) => {
         e.preventDefault();
-        const { data } = await axios.patch('http://localhost:5000/documents/update/service', serviceText, {
+        const { data } = await axios.patch('https://salty-inlet-72802.herokuapp.com/documents/update/service', serviceText, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${ sessionStorage.getItem('token') }`
