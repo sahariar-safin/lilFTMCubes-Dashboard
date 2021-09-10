@@ -12,12 +12,12 @@ function Home() {
             <Navbar />
             <div className="container">
                 <div className="row">
-                    <div className="col-md-6 pt-5">
+                    <div className="col-md-6 pt-5 pb-5">
                         <Heading />
                         <Buttons />
                         <ButtonMains />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 pt-5 pb-5">
                         <ServiceCards />
                     </div>
                 </div>

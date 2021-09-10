@@ -30,7 +30,7 @@ function ServiceCards() {
     }, [dep])
 
     return (
-        <div className="pt-5">
+        <div className="">
             <div className="d-flex justify-content-between">
                 <div className="title-bg">
                     <h3 className="title">Service Card</h3>
